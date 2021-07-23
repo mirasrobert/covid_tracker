@@ -11,7 +11,7 @@ async function worldCovidRecord(queryParam) {
   return data;
 }
 
-function filterCountries() {
+function searchCountryCases() {
   let searchCountry = document.getElementById("searchCountry");
   let searchBtn = document.getElementById("searchBtn");
 
@@ -53,5 +53,21 @@ function filterCountries() {
     }
   });
 }
+searchCountryCases();
 
-filterCountries();
+async function covid() {
+  const response = await fetch(
+    `https://covid-api.mmediagroup.fr/v1/history?country=Germany&status=deaths`,
+    {
+      "Content-Type": "application/json",
+    }
+  );
+
+  const data = await response.json();
+
+  return data;
+}
+
+covid().then((data) => {
+  console.log(data);
+});
