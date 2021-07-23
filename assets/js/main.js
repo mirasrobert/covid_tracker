@@ -18,7 +18,7 @@ fetch(worldRecordAPI, {
   method: "GET",
   header: {
     "Content-Type": "application/json",
-    "Access-Control-Allow-Origin": "http://localhost",
+    "Access-Control-Allow-Origin": "*",
     "Access-Control-Allow-Methods": "OPTIONS,GET",
   },
 })
