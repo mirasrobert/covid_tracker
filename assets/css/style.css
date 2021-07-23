@@ -1,0 +1,36 @@
+* {
+  box-sizing: border-box;
+}
+
+/* IMAGE */
+#showcase {
+  position: relative;
+  background: url("../img/bg.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 600px; /* 100vh */
+}
+
+/* DARK OVERLAY */
+#showcase .bg-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 600px;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.showcase-inner {
+  padding-top: 100px;
+}
+
+#subhead p {
+	font-weight: 400;
+	color: #111;
+}
+
+#cases .cases-text {
+	font-weight: 400;
+	font-size: 2rem;
+}
