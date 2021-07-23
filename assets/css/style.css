@@ -5,7 +5,7 @@
 /* IMAGE */
 #showcase {
   position: relative;
-  background: url("../img/bg.jpg");
+  background: url("../img/showcase.jpg");
   background-size: cover;
   background-attachment: fixed;
   min-height: 600px; /* 100vh */
