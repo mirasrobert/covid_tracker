@@ -1,4 +1,7 @@
-async function worldCovidRecord(queryParam) {
+/*
+ Return country cases
+*/
+async function countryCovidCases(queryParam) {
   const response = await fetch(
     `https://covid-api.mmediagroup.fr/v1/cases?ab=${queryParam}`,
     {
@@ -20,8 +23,20 @@ function searchCountryCases() {
 
     // IF search box is not empty
     if (search != "") {
+
+      // validation
+      if (
+        searchCountry.classList.contains("is-invalid") ||
+        searchCountry.classList.contains("border") ||
+        searchCountry.classList.contains("border-danger")
+      ) {
+        searchCountry.classList.remove("is-invalid");
+        searchCountry.classList.remove("border");
+        searchCountry.classList.remove("border-danger");
+      }
+
       // Call to the API
-      worldCovidRecord(search).then((data) => {
+      countryCovidCases(search).then((data) => {
         // Do something on the data
 
         let result = data.All;
@@ -32,14 +47,14 @@ function searchCountryCases() {
         ).innerHTML = `<h5>${result.country}</h5>`;
 
         document.getElementById("modal-body").innerHTML = `
-        <h5>
-          Confirmed Cases: ${result.confirmed}
+        <h5 class='text-muted'>
+          Confirmed Cases: <span class='text-dark'>${result.confirmed}</span>
         </h5>
-        <h5>
-          Deaths: ${result.deaths}
+        <h5 class='text-muted'>
+          Deaths: <span class='text-dark'>${result.deaths}</span>
         </h5>
-        <h5>
-          Recovered: ${result.recovered}
+        <h5 class='text-muted'>
+          Recovered: <span class='text-dark'>${result.recovered}</span>
         </h5>
 
         <small>Updated: ${result.updated}</small>`;
@@ -47,27 +62,34 @@ function searchCountryCases() {
         searchCountry.value = ""; // Clear the search input
 
         $("#myModal").modal("show"); // Open Modal
+        
       });
     } else {
+
       console.log("No Input");
+      searchCountry.classList.add("is-invalid");
+      searchCountry.classList.add("border");
+      searchCountry.classList.add("border-danger");
+
     }
   });
 }
+
 searchCountryCases();
 
-async function covid() {
-  const response = await fetch(
-    `https://covid-api.mmediagroup.fr/v1/history?country=Germany&status=deaths`,
-    {
-      "Content-Type": "application/json",
-    }
-  );
+/* Return World Summary */
+async function global() {
+  const response = await fetch(`https://api.covid19api.com/summary`, {
+    "Content-Type": "application/json",
+  });
 
   const data = await response.json();
 
   return data;
 }
 
-covid().then((data) => {
-  console.log(data);
+global().then((data) => {
+  document.getElementById(
+    "total-cases"
+  ).innerHTML = `<span>${data.Global.TotalConfirmed}</span>`;
 });

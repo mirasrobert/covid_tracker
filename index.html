@@ -25,7 +25,7 @@
                 We are here to track with you
               </h1>
               <p>
-                Easy to track the world cases about covid-19 pandemic Doloremque
+                Easy to track the world cases about covid-19 pandemic. Doloremque
                 quia distinctio ea aliquam iusto asperiores laboriosam maxime
                 fugit ullam quaerat?
               </p>
@@ -124,7 +124,7 @@
             <p>So always be prepared</p>
             <div class="no-cases text-center">
               <h5 class="my-3 mt-2">No. of cases in all over the world</h5>
-              <h4 class="cases-text">192,694,293</h4>
+              <h4 id="total-cases" class="cases-text">192,694,293</h4>
             </div>
           </div>
         </div>
@@ -150,12 +150,41 @@
             frameborder="0"
           ></iframe>
         </div>
+      </div>
+    </section>
+    
+    <section id="chart" class="py-5">
+      <div class="container">
+        <div class="row justify-content-center">
 
-        <div class="row">
-          <div class="col-lg-3"></div>
-          <div class="col-lg-3"></div>
-          <div class="col-lg-3"></div>
-          <div class="col-lg-3"></div>
+          <h1 class="text-center text-uppercase mb-3">SUMMARY & ChaRTS</h1>
+
+          <div class="col-lg-8 col-sm-12">
+            <div class="mb-3">
+              <div class="input-group">
+                <input
+                  id="searchCountryChart"
+                  type="text"
+                  class="form-control"
+                  placeholder="Search your country eg. US, FR, PH, JP"
+                />
+                <div class="input-group-append">
+                  <!-- Button trigger chart -->
+                  <button
+                    type="button"
+                    id="searchChartBtn"
+                    class="btn btn-primary px-3"
+                  >
+                    Search
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- FOR CHART -->
+            <div id="canvas-chart" class="mb-3"></div>
+            <div id="canvas-chart-death"></div>
+          </div>
         </div>
       </div>
     </section>
@@ -180,6 +209,9 @@
       crossorigin="anonymous"
     ></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/chart.js"></script>
   </body>
 </html>
