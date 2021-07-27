@@ -4,8 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+
     <title>Covid-19 Tracker</title>
   </head>
   <body>
@@ -131,7 +135,7 @@
       </div>
     </section>
 
-    <section id="most-cases" class="py-5 bg-info">
+    <!-- <section id="most-cases" class="py-5 bg-info">
       <div class="container">
         <div class="row">
           <iframe
@@ -151,8 +155,120 @@
           ></iframe>
         </div>
       </div>
-    </section>
+    </section> -->
     
+    <section id="dashboard" class="py-5"">
+      <div class="container">
+        <div class="row align-content-center align-items-center">
+          <div class="col-lg-3 mb-3">
+            <div class="card border-left-info">
+              <div class="card-body ">
+                <div class="row">
+                  <div class="col">
+                    <div class="">
+                      <i class="fas fa-globe fa-2x text-info"></i>
+                    </div>
+                    <p class="m-0 p-0 my-2 text-info">POPULATION</p>
+                    <h5 class="m-0 p-0 mb-2" id="population">194,458,512
+                      <span><small class="new">+12345</small></span>
+                    </h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 mb-3">
+            <div class="card border-left-warning">
+              <div class="card-body ">
+                <div class="row">
+                  <div class="col">
+                    <div class="">
+                      <i class="fas fa-pills fa-2x text-warning"></i>
+                    </div>
+                    <p class="m-0 p-0 my-2 text-warning" >Confirmed Cases</p>
+                    <h5 class="m-0 p-0 mb-2" id="confirm-cases">194,458,512
+                      <span><small class="new text-warning"></small></span>
+                    </h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 mb-3">
+            <div class="card border-left-success">
+              <div class="card-body ">
+                <div class="row">
+                  <div class="col">
+                    <div class="">
+                      <i class="fas fa-clinic-medical fa-2x text-success"></i>
+                    </div>
+                    <p class="m-0 p-0 my-2 text-success" >Recovered</p>
+                    <h5 class="m-0 p-0 mb-2" id="recovered">194,458,512
+                      <span><small class="new text-success"></small></span>
+                    </h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 mb-3 ">
+            <div class="card border-left-danger">
+              <div class="card-body ">
+                <div class="row">
+                  <div class="col">
+                    <div class="">
+                      <i class="fas fa-skull-crossbones fa-2x text-danger"></i>
+                    </div>
+                    <p class="m-0 p-0 my-2 text-danger" >Deaths</p>
+                    <h5 class="m-0 p-0 mb-2" id="deaths">194,458,512
+                      <span><small class="new text-danger"></small></span>
+                    </h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CHART -->
+        <div class="row justify-content-center">
+          <div class="col-lg-5 col-sm-12">
+            <div>
+              <canvas id="global-cases-chart"></canvas>
+            </div>
+          </div>
+          <div class="col-lg-7 col-sm-12">
+            <div>
+              <canvas id="global-cases-chart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="country-table" class="py-3">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col">
+            <table id="example" class="table table-responsive table-sm table-bordered table-hover table-dark w-100 d-block d-md-table mt-5 " style="width:100%">
+              <thead class="text-white">
+                <tr>
+                  <th>Country</th>
+                  <th>Confirmed</th>
+                  <th>Recovered</th>
+                  <th>Deaths</th>
+                </tr>
+              </thead>
+              <tbody id="tbody">
+              
+            </tbody>
+          </table>
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Summary chart -->
     <section id="chart" class="py-5">
       <div class="container">
         <div class="row justify-content-center">
@@ -213,5 +329,8 @@
 
     <script src="assets/js/main.js"></script>
     <script src="assets/js/chart.js"></script>
+
+    <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
   </body>
 </html>

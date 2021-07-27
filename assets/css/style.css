@@ -26,11 +26,47 @@
 }
 
 #subhead p {
-	font-weight: 400;
-	color: #111;
+  font-weight: 400;
+  color: #111;
 }
 
 #cases .cases-text {
-	font-weight: 400;
-	font-size: 2rem;
+  font-weight: 400;
+  font-size: 2rem;
+}
+
+#dashboard {
+  background-color: #121212;
+}
+
+#dashboard .card {
+  border-radius: 0.5rem;
+}
+
+#country-table {
+  background-color: #121212;
+}
+
+.border-left-info {
+  border-left: 5px solid #1f9bcf;
+}
+
+.border-left-warning {
+  border-left: 5px solid #f0ad4a;
+}
+.border-left-success {
+  border-left: 5px solid #4bbf73;
+}
+
+.border-left-danger {
+  border-left: 5px solid #d9534f;
+}
+
+.new {
+  font-size: 13px !important;
+  letter-spacing: -0.5px !important;
+}
+
+tr {
+  height: 2px !important;
 }
