@@ -52,54 +52,65 @@ $(function () {
         input.classList.remove("border-danger");
       }
 
-      // Call API
-      summaryOfConfirmedCases(search).then((response) => {
-        let result = response.All;
+      // Show Loading
+      document.getElementById(
+        "canvas-chart"
+      ).innerHTML = `<img id="loading" class="d-block mx-auto" src="assets/img/loading.gif" alt="loading">`;
 
-        const labels = Object.keys(result.dates);
+      // Call API -- Chart 1
+      summaryOfConfirmedCases(search)
+        .then((response) => {
+          let result = response.All;
 
-        const values = Object.values(result.dates);
+          const labels = Object.keys(result.dates);
 
-        const data = {
-          labels: labels,
-          datasets: [
-            {
-              label: `Summary of confirmed cases in ${result.country}`,
-              backgroundColor: "rgb(255, 99, 132)",
-              borderColor: "rgb(255, 99, 132)",
-              data: values,
-            },
-          ],
-        };
+          const values = Object.values(result.dates);
 
-        let config = {
-          type: "line",
-          data,
-          options: {},
-        };
+          const data = {
+            labels: labels,
+            datasets: [
+              {
+                label: `Summary of confirmed cases in ${result.country}`,
+                backgroundColor: "rgb(255, 99, 132)",
+                borderColor: "rgb(255, 99, 132)",
+                data: values,
+              },
+            ],
+          };
 
-        // Check if Canvas Exist
-        if (document.body.contains(document.getElementById("myChart"))) {
-          document.getElementById("myChart").remove();
-        }
+          let config = {
+            type: "line",
+            data,
+            options: {},
+          };
 
-        // Create the canvas
-        document.getElementById("canvas-chart").innerHTML = `
+          // Check if Canvas Exist
+          if (document.body.contains(document.getElementById("myChart"))) {
+            document.getElementById("myChart").remove();
+          }
+
+          // Create the canvas
+          document.getElementById("canvas-chart").innerHTML = `
 		<canvas id="myChart"></canvas>
 		`;
 
-        // Show CHART
-        let myChart = new Chart(document.getElementById("myChart"), config);
-      });
+          // Show CHART
+          let myChart = new Chart(document.getElementById("myChart"), config);
+        })
+        .catch((err) => {
+          // Check for errors
+          document.getElementById("loading").remove();
+        });
     } else {
-      console.log("No Input");
+      // no input
+      console.log("No Input Summary");
 
       input.classList.add("is-invalid");
       input.classList.add("border");
       input.classList.add("border-danger");
     }
 
-    // Show Summary of Deaths
+    // Show Summary of Deaths -- Chart 2
     summaryOfDeaths(search)
       .then((response) => {
         let result = response.All;
@@ -154,6 +165,11 @@ $(function () {
           input.value = "";
         }
       })
-      .catch((err) => console.error(err));
+      .catch((err) => {
+        // Show error
+        input.classList.add("is-invalid");
+        input.classList.add("border");
+        input.classList.add("border-danger");
+      });
   });
 });

@@ -64,7 +64,7 @@
                 id="searchCountry"
                 type="text"
                 class="form-control"
-                placeholder="Search your country eg. US, FR, PH, JP"
+                placeholder="Search your country eg. KR, FR, PH, JP"
               />
               <div class="input-group-append">
                 <!-- Button trigger modal -->
@@ -73,6 +73,7 @@
                   id="searchBtn"
                   class="btn btn-primary px-3"
                 >
+                <i id="fa-spinner" class="fa fa-spinner fa-spin"></i>
                   Search
                 </button>
               </div>
@@ -83,7 +84,7 @@
     </section>
 
     <div id="search-modal">
-      <<!-- Modal -->
+      <!-- Modal -->
       <div
         class="modal fade"
         id="myModal"
@@ -157,21 +158,22 @@
       </div>
     </section> -->
     
-    <section id="dashboard" class="py-5"">
+    <section id="dashboard" class="pb-3">
       <div class="container">
         <div class="row align-content-center align-items-center">
+          <h1 class="text-white py-5 font-weight-bold text-center">Global</h1>
           <div class="col-lg-3 mb-3">
             <div class="card border-left-info">
               <div class="card-body ">
                 <div class="row">
                   <div class="col">
                     <div class="">
-                      <i class="fas fa-globe fa-2x text-info"></i>
+                      <i class="fas fa-syringe fa-2x text-info"></i>
                     </div>
-                    <p class="m-0 p-0 my-2 text-info">POPULATION</p>
-                    <h5 class="m-0 p-0 mb-2" id="population">194,458,512
+                    <p class="m-0 p-0 my-2 text-info">Vaccinated</p>
+                    <h5 class="m-0 p-0 mb-2" id="vaccinated">194,458,512
                       <span><small class="new">+12345</small></span>
-                    </h5>
+                    </h5> 
                   </div>
                 </div>
               </div>
@@ -229,20 +231,6 @@
             </div>
           </div>
         </div>
-
-        <!-- CHART -->
-        <div class="row justify-content-center">
-          <div class="col-lg-5 col-sm-12">
-            <div>
-              <canvas id="global-cases-chart"></canvas>
-            </div>
-          </div>
-          <div class="col-lg-7 col-sm-12">
-            <div>
-              <canvas id="global-cases-chart"></canvas>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -282,7 +270,7 @@
                   id="searchCountryChart"
                   type="text"
                   class="form-control"
-                  placeholder="Search your country eg. US, FR, PH, JP"
+                  placeholder="Search your country eg. KR, FR, PH, JP"
                 />
                 <div class="input-group-append">
                   <!-- Button trigger chart -->
