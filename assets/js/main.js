@@ -116,14 +116,12 @@ function searchCountryCases() {
             .catch((err) => {
               console.log("Error: " + err);
 
-
               document.getElementById("fa-spinner").hidden = true;
 
               searchBtn.disabled = false;
               searchCountry.classList.add("is-invalid");
               searchCountry.classList.add("border");
               searchCountry.classList.add("border-danger");
-              
             });
         })
         .catch((err) => {
@@ -264,7 +262,7 @@ $(function () {
       )}</span>
       <span><small class="new text-success">+${percentageOfVaccinated.toFixed(
         2
-      )}% of population</small></span>
+      )}%</small></span>
       `;
     })
     .catch((err) => console.error(err));

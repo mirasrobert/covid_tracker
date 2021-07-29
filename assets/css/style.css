@@ -33,6 +33,7 @@
 #cases .cases-text {
   font-weight: 400;
   font-size: 2rem;
+  color: #1e95c8;
 }
 
 #dashboard {
@@ -69,4 +70,39 @@
 
 tr {
   height: 2px !important;
+}
+
+footer {
+  margin: 0;
+  padding: 0;
+}
+
+.footer-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+}
+
+.footer-icons li {
+  padding-right: 1rem;
+  transition: 500ms ease;
+}
+
+.footer-icons a {
+  text-decoration: none !important;
+}
+
+.footer-icons a:hover {
+  cursor: pointer;
+}
+
+.footer-icons li:hover {
+  transform: translateY(-8px);
+}
+
+footer .row p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
