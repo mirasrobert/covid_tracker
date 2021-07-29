@@ -113,7 +113,18 @@ function searchCountryCases() {
 
               $("#myModal").modal("show"); // Open Modal
             })
-            .catch((err) => console.log(err));
+            .catch((err) => {
+              console.log("Error: " + err);
+
+
+              document.getElementById("fa-spinner").hidden = true;
+
+              searchBtn.disabled = false;
+              searchCountry.classList.add("is-invalid");
+              searchCountry.classList.add("border");
+              searchCountry.classList.add("border-danger");
+              
+            });
         })
         .catch((err) => {
           // Returns error
