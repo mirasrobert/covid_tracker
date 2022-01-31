@@ -77,7 +77,7 @@ function searchCountryCases() {
               // Append Data to Modal
               document.getElementById(
                 "modal-title"
-              ).innerHTML = `<h5> <span><img class="m-0 p-0" src="https://www.countryflags.io/${result.abbreviation}/shiny/32.png">
+              ).innerHTML = `<h5> <span><img class="m-0 p-0" src="https://flagcdn.com/24x18/${result.abbreviation}.png">
         </span> ${result.country}</h5>`;
 
               document.getElementById("modal-body").innerHTML = `
@@ -215,13 +215,13 @@ $(function () {
 
       countries.forEach((country) => {
         // Populate the table with data from API
-
+       
         tbody += `
       <tr>  
         <td> 
-        <span><img src="https://www.countryflags.io/${
+        <span><img src="https://flagcdn.com/24x18/${
           country.CountryCode
-        }/flat/16.png">
+        }.png">
         </span> ${country.Country}
         </td>
         <td>
