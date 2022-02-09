@@ -77,7 +77,7 @@ function searchCountryCases() {
               // Append Data to Modal
               document.getElementById(
                 "modal-title"
-              ).innerHTML = `<h5> <span><img class="m-0 p-0" src="https://flagcdn.com/24x18/${result.abbreviation}.png">
+              ).innerHTML = `<h5> <span><img class="m-0 p-0" src="https://flagcdn.com/24x18/${result.abbreviation.toLowerCase()}.png">
         </span> ${result.country}</h5>`;
 
               document.getElementById("modal-body").innerHTML = `
@@ -220,7 +220,7 @@ $(function () {
       <tr>  
         <td> 
         <span><img src="https://flagcdn.com/24x18/${
-          country.CountryCode
+          country.CountryCode.toLowerCase()
         }.png">
         </span> ${country.Country}
         </td>
